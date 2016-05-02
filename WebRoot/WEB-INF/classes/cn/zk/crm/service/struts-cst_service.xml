@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="cst" namespace="/pages/~cust/service" extends="struts-default">
+		<action name="cst_service_*" class="cst_serviceAction" method="{1}">
+			<result name="add">add.jsp</result>
+
+			<result name="findBycon">dispatch.jsp</result>
+
+			<result name="findwithfp">deal.jsp</result>
+
+			<result name="findwithcl">feedback.jsp</result>
+
+			<result name="findwithgd">arch.jsp</result>
+
+			<result name="findBycon1">deal.jsp</result>
+
+			<result name="findBycon2">feedback.jsp</result>
+
+			<result name="findBycon3">arch.jsp</result>
+
+			<result name="delete" type="redirectAction">
+				cst_service_findAll.action?curPage=1	
+			</result>
+
+			<result name="querySuc">deal_detail.jsp</result>
+
+			<result name="updateSuc" type="redirectAction">
+				cst_service_findWithfp.action?curPage=1
+            </result>
+
+			<result name="queryOne">feedback_detail.jsp</result>
+
+			<result name="deal">feedback.jsp</result>
+
+			<result name="queryR">detail.jsp</result>
+
+			<result name="cust_name">add.jsp</result>
+		</action>
+	</package>
+</struts>

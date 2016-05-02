@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="jfree" namespace="/pages/~rept" extends="struts-default">
+   		<result-types>
+   			<result-type name="chart" class="org.apache.struts2.dispatcher.ChartResult"></result-type>
+   		</result-types>
+   		<action name="jfree*" class="jfreeAction" method="{1}">
+   			<result name="success" type="chart">
+   				<param name="width">800</param>
+   				<param name="height">300</param>
+   			</result>
+   		</action>
+   		
+   </package>  
+</struts>

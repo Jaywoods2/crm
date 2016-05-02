@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <package name="log" namespace="/pages/~systemset" extends="struts-default">
+   		<action name="log*" class="logAction" method="{1}">
+   			<result name="success">log_review.jsp</result>
+   			<result name="input">login.jsp</result>
+   			<result name="excel" type="stream" >
+	            <param name="contentType">application/vnd.ms-excel</param>
+	            <param name="inputName">Input</param>
+	            <param name="contentDisposition">attachment;filename="crmLog.xls"</param>
+	            <param name="bufferSize">1024</param>
+            </result>
+   		</action>
+   		<action name="role*" class="roleAction" method="{1}">
+   			<result name="success">role_manage.jsp</result>
+   			<result name="edit">role_update.jsp</result>
+   			<result name="update" type="redirectAction">roleall</result>
+   		</action>
+   		
+   		<action name="user2*" class="userAction2" method="{1}">
+   			<result name="success">user_manage.jsp</result>
+   		</action>
+   </package>
+   
+</struts>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<!-- sessionFactory 等价于 hibernateSessionFactory -->
+    
+         
+           
+   <bean id="dictDao" class="cn.zk.daoimpl.DictDAOImpl" >
+   		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   </bean>
+    <bean id="dictService" class="cn.zk.serviceimpl.DictServiceImpl">
+    	<property name="dictDao" ref="dictDao"></property>
+    </bean>
+    
+    <bean id="dictAction" class="cn.zk.action.DictAction" scope="prototype">
+    	<property name="dictService" ref="dictService"></property>
+    </bean>
+</beans>

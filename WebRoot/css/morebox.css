@@ -1,0 +1,9 @@
+#morebox {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; DISPLAY: none; Z-INDEX: 10; LEFT: 0px; OVERFLOW-X: hidden; BORDER-LEFT: #cccccc 1px solid; WIDTH: 100px; BORDER-BOTTOM: #cccccc 1px solid; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: #f0f7ff
+}
+#morebox UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: inside; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #cccccc 1px solid; LIST-STYLE-TYPE: none; BACKGROUND-COLOR: #f0f7ff
+}
+LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LIST-STYLE-POSITION: inside; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: #cccccc 1px solid; LIST-STYLE-TYPE: none; BACKGROUND-COLOR: #f0f7ff
+}

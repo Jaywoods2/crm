@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	
+	
+	<bean id="salDao" class="cn.zk.daoimpl.SalDaoimpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	<bean id="salchanceService" class="cn.zk.serviceimpl.SalchanceServiceimpl">
+		<property name="saldao" ref="salDao"></property>
+	</bean>
+	
+	<!--action一定要加 prototype -->
+	<bean id="SalAction" class="cn.zk.crm.sale.SalAction" scope="prototype">
+		<property name="salchanceService" ref="salchanceService"></property>
+		<property name="userservice" ref="userService"></property>
+		<property name="logService" ref="logService"></property>
+	</bean>
+	<bean id="DoplanAction" class="cn.zk.crm.sale.DoplanAction" scope="prototype">
+		<property name="salchanceService" ref="salchanceService"></property>
+	</bean>
+</beans>

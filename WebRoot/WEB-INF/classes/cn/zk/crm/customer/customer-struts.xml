@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts >
+    <package name="customer" namespace="/pages/~cust/cust" extends="struts-default">
+    	<action name="cus*" class="customerAction" method="{1}">
+    		<result name="all">list.jsp</result>
+    	</action>
+    	<action name="edit*" class="updateAction" method="{1}">
+    		<result name="qedit">edit.jsp</result>
+    		<result name="change" type="redirectAction">cusall.action</result>
+    		
+    		<result name="lkm">linkman.jsp</result>
+    		<result name="suc" type="redirectAction">editlkm?cust_id=${cust_id}</result>
+    		<result name="one">linkman_edit.jsp</result>
+    		<result name="upsuc" type="redirectAction">editlkm?cust_id=${lkm.lkm_cust_id}</result>
+    		<result name="delcst" type="chain">cusall</result>
+    	</action>
+    	
+    	<action name="atv*" class="activeAction" method="{1}">
+    		<result name="success">activities.jsp</result>
+    		<result name="addsuc" type="redirectAction">atvalist?cust_id=${cust_id}</result>
+    		<result name="qone">activities_edit.jsp</result>
+    		<result name="esuc" type="redirectAction">atvalist?cust_id=${atv.atv_cust_id}</result>
+    		<result name="asd">/asd.jsp</result>
+    	</action>
+    	
+    	<action name="order*" class="orderAction" method="{1}">
+    		<result name="list">orders.jsp</result>
+    		<result name="detail">orders_detail.jsp</result>
+    	</action>
+    	
+    	<action name="cst*" class="queryAction" method="{1}">
+    		<result name="success">list.jsp</result>
+    	</action>
+    	
+    	
+    </package>
+    
+    <package name="lost" namespace="/pages/~cust/lost" extends="struts-default">
+    	<action name="lost*" class="lostAction" method="{1}">
+    		<result name="list">list.jsp</result>
+    		<result name="comfirm">confirm.jsp</result>
+    		<result name="update" type="redirectAction">lostlist</result>
+    	</action>
+   
+    </package>
+</struts>

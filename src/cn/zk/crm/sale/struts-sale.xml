@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <package name="salchance" namespace="/salchance" extends="struts-default">
+   	<!-- 这个class 我们写spring的action的id -->
+   	<action name="salchance_*" class="SalAction" method="{1}">
+   		<result name="success" type="chain">salchance_findall</result>
+   		<result name="update" type="chain">salchance_findall</result>
+   		<result name="delete" type="chain">salchance_findall</result>
+   		<result name="findchance">/pages/~sale/list.jsp</result>
+   		<result name="findsalchance">/pages/~sale/edit.jsp</result>
+   		<result name="dueSalchance" >/pages/~sale/dispatch.jsp</result>
+   		<result name="findplan" >/pages/~sale/dev.jsp</result>
+   		<result name="doplan" >/pages/~sale/dev_plan.jsp</result>
+   		<result name="todoplan" >/pages/~sale/dev_execute.jsp</result>
+   		<result name="planresult" type="chain">salchance_findplan</result>
+   		<result name="findtoplan">/pages/~sale/dev_detail.jsp</result>
+   	</action>
+   	
+   	 <action name="salplan_*" class="DoplanAction" method="{1}">
+   	 <result name="addplan" type="chain">salchance_findplan</result>
+   	  <result name="deleteSalplan" type="chain">salchance_findplan</result>
+   	  <result name="updateSalplan" type="chain" >salchance_findplan</result>
+   	  <result name="updatePlanResult" type="chain">salchance_findplan</result>
+   	 </action>
+   </package>
+
+   
+  
+
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+		<bean id="customerDAO" class="cn.zk.daoimpl.CustomerDAOImpl">
+			<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+		</bean>
+		<bean id="customerService" class="cn.zk.serviceimpl.CustomerServiceImpl">
+			<property name="customerDAO" ref="customerDAO"></property>
+		</bean>
+		<bean id="customerAction" class="cn.zk.crm.customer.CustomerAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+		</bean>
+		<bean id="updateAction" class="cn.zk.crm.customer.UpdateAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+			<property name="userService" ref="userService"></property>
+			<property name="logService" ref="logService"></property>
+		</bean>
+		<bean id="activeAction" class="cn.zk.crm.customer.ActiveAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+			<property name="logService" ref="logService"></property>
+		</bean>
+		
+		<bean id="orderAction" class="cn.zk.crm.customer.OrderAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+		</bean>
+		<bean id="queryAction" class="cn.zk.crm.customer.QueryAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+		</bean>
+		<bean id="lostAction" class="cn.zk.crm.customer.LostAction" scope="prototype">
+			<property name="customerService" ref="customerService"></property>
+			<property name="logService" ref="logService"></property>
+		</bean>
+</beans>
